@@ -10,8 +10,9 @@ Just a nav tree for Github (and Github Enterprise).
 
 ![](https://res.cloudinary.com/digf90pwi/image/upload/v1583155264/%E6%8D%95%E8%8E%B73_eze8bu.png)
 
-
 ## Install
 
 * Go to build page & download snapshot build
-* Open <a href="chrome://extensions/" target="_blank">Chrome Extension Page</a>, Enable `Developer Mode`, drag & drop the `Gitako-Ext.zip` file into the page.
+* Open the `Chrome Extension Page`
+* Enable `Developer Mode`
+* Drag & drop the `Gitako-Ext.zip` file into the page
