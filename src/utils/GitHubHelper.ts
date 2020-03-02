@@ -24,6 +24,28 @@ type Options = {
   accessToken?: string
 }
 
+export const isGithub = () => {
+  return Boolean(document.getElementsByClassName("octicon"))
+}
+
+export const isEnterpriseGithub = () => {
+  if (isGithub()) {
+    if (window.location.host == "github.com") { // is public global github
+      return false
+    }
+    return true // is enterprise github
+  }
+  return false // is not github
+}
+
+const getURIBase = () => {
+  const { location: { protocol, host } } = window;
+  if (isEnterpriseGithub()) {
+    return `${protocol}//${host}/api/v3`
+  }
+  return "https://api.github.com"
+}
+
 async function request(url: string, { accessToken }: Options = {}) {
   const headers = {} as HeadersInit & {
     Authorization?: string
@@ -80,7 +102,7 @@ export async function getRepoMeta({
   repoName,
   accessToken,
 }: MetaData): Promise<RepoMetaData> {
-  const url = `https://api.github.com/repos/${userName}/${repoName}`
+  const url = `${getURIBase()}/repos/${userName}/${repoName}`
   return await request(url, { accessToken })
 }
 
@@ -106,7 +128,7 @@ export async function getTreeData({
   branchName,
   accessToken,
 }: MetaData): Promise<TreeData> {
-  const url = `https://api.github.com/repos/${userName}/${repoName}/git/trees/${branchName}?recursive=1`
+  const url = `${getURIBase()}/repos/${userName}/${repoName}/git/trees/${branchName}?recursive=1`
   return await request(url, { accessToken })
 }
 
@@ -126,7 +148,7 @@ export async function getBlobData({
 }: Pick<MetaData, 'userName' | 'repoName' | 'accessToken'> & {
   sha: string
 }): Promise<BlobData> {
-  const url = `https://api.github.com/repos/${userName}/${repoName}/git/blobs/${sha}`
+  const url = `${getURIBase()}/repos/${userName}/${repoName}/git/blobs/${sha}`
   return await request(url, { accessToken })
 }
 

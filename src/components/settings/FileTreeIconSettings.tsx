@@ -7,22 +7,22 @@ const options: {
   value: Config['icons']
   label: string
 }[] = [
-  {
-    key: 'rich',
-    value: 'rich',
-    label: `VSCode icons`,
-  },
-  {
-    key: 'dim',
-    value: 'dim',
-    label: `VSCode icons (single color)`,
-  },
-  {
-    key: 'native',
-    value: 'native',
-    label: `Native GitHub icons`,
-  },
-]
+    // {
+    //   key: 'rich',
+    //   value: 'rich',
+    //   label: `VSCode icons`,
+    // },
+    // {
+    //   key: 'dim',
+    //   value: 'dim',
+    //   label: `VSCode icons (single color)`,
+    // },
+    {
+      key: 'native',
+      value: 'native',
+      label: `Native GitHub icons`,
+    },
+  ]
 
 type Props = {}
 

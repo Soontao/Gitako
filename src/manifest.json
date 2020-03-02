@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Gitako - Github file tree",
-  "version": "0.8.7",
+  "name": "Gitako E - Github file tree",
+  "version": "0.8.8",
   "description": "The missing part of GitHub.",
   "author": "EnixCoda",
   "icons": {
@@ -10,8 +10,7 @@
   "homepage_url": "https://github.com/EnixCoda/Gitako",
   "permissions": [
     "storage",
-    "*://*.github.com/*",
-    "*://*.sentry.io/*"
+    "<all_urls>"
   ],
   "web_accessible_resources": [
     "icons/vscode/*"
@@ -19,7 +18,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://github.com/*"
+        "<all_urls>"
       ],
       "css": [
         "content.css"

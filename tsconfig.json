@@ -7,12 +7,21 @@
     "module": "commonjs",
     "strict": true,
     "resolveJsonModule": true,
-    "lib": ["dom", "es2017.object", "es2016"],
+    "lib": [
+      "dom",
+      "es2017.object",
+      "es2016"
+    ],
     "baseUrl": ".",
     "experimentalDecorators": true,
     "paths": {
-      "*": ["src/*", "packages/*"]
+      "*": [
+        "src/*",
+        "packages/*"
+      ]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

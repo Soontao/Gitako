@@ -30,7 +30,7 @@ export const defaultConfigs: Config = {
   copyFileButton: true,
   copySnippetButton: true,
   intelligentToggle: null,
-  icons: 'rich',
+  icons: 'native',
 }
 
 const configKeyArray = Object.values(configKeys)
