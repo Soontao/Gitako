@@ -64,8 +64,9 @@ module.exports = {
     filename: '[name].js',
   },
   cache: {
+    version: packageJson.version,
     type: 'filesystem',
-    cacheDirectory: path.resolve(os.tmpdir(), '.temp_cache')
+    cacheDirectory: path.resolve(os.tmpdir(), '.webpack_temp_cache')
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
