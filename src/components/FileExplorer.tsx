@@ -209,7 +209,7 @@ function ListView({
       }}
       itemData={{ nodes }}
       itemCount={nodes.length}
-      itemSize={35}
+      itemSize={25}
       height={height}
       width={width}
     >

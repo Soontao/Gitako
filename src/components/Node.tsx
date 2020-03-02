@@ -53,7 +53,7 @@ export function Node({ node, depth, expanded, focused, renderActions, style, onC
       <a href={node.url} onClick={onClickNode}>
         <div
           className={cx('node-item', { expanded })}
-          style={{ paddingLeft: `${10 + 20 * depth}px` }}
+          style={{ paddingLeft: `${10 + 10 * depth}px` }}
         >
           <div className={'node-item-label'}>
             <NodeItemIcon node={node} open={expanded} />
