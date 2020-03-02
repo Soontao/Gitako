@@ -2,13 +2,9 @@
 
 [![Node.js CI](https://github.com/Soontao/Gitako/workflows/Node.js%20CI/badge.svg)](https://github.com/Soontao/Gitako/actions/runs/48173272)
 
-Yet another extension for GitHub, available on both Chrome and Firefox. Inspired by [Octotree](https://github.com/buunguyen/octotree) & [GayHub](https://github.com/jawil/GayHub), thanks to them! Gitako is aimed at providing the best performance, better UX, more consistent UI and more essential features.
+## Fork Project
 
-## Features
-
-Just a nav tree for Github (and Github Enterprise).
-
-![](https://res.cloudinary.com/digf90pwi/image/upload/v1583155264/%E6%8D%95%E8%8E%B73_eze8bu.png)
+This is a forked project from the main repo, and I've adjust many build scripts & remove un-necessary sources. All in all, Thanks the original project & its contributors.
 
 ## Install
 
@@ -16,3 +12,9 @@ Just a nav tree for Github (and Github Enterprise).
 * Open the `Chrome Extension Page`
 * Enable `Developer Mode`
 * Drag & drop the `Gitako-Ext.zip` file into the page
+
+## Features
+
+Just a nav tree for Github (and Github Enterprise).
+
+![](https://res.cloudinary.com/digf90pwi/image/upload/v1583155797/%E6%8D%95%E8%8E%B74_q1wa0b.png)
