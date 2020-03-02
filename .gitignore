@@ -5,3 +5,7 @@ tmp
 dist
 yarn-error.log
 vscode-icons
+pack
+.DS_Store
+*.crx
+*.zip
