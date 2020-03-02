@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const path = require('path')
+const os = require("os")
 const Dotenv = require('dotenv-webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -61,6 +62,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
+  },
+  cache: {
+    type: 'filesystem',
+    cacheDirectory: path.resolve(os.tmpdir(), '.temp_cache')
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
