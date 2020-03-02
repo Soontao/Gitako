@@ -1,4 +1,3 @@
-import { raiseError } from 'analytics'
 import { MetaData } from './GitHubHelper'
 
 export function parse(): MetaData & { path: string[] } {
@@ -80,10 +79,6 @@ export function getCurrentPath(branchName = '') {
             splitBranchName.shift()
             path.shift()
           } else {
-            raiseError(new Error(`branch name and path prefix not match`), {
-              branchName,
-              path: parse().path,
-            })
             return []
           }
         }

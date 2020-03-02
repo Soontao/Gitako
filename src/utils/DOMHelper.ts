@@ -1,7 +1,6 @@
 /**
  * this helper helps manipulating DOM
  */
-import { raiseError } from 'analytics'
 import { Clippy, ClippyClassName } from 'components/Clippy'
 import { CopyFileButton, copyFileButtonClassName } from 'components/CopyFileButton'
 import * as NProgress from 'nprogress'
@@ -41,8 +40,8 @@ function $<EE extends Element, E extends (element: EE) => any, O extends () => a
   otherwise?: O,
 ): E extends never
   ? O extends never
-    ? Element | null
-    : ReturnType<O> | null
+  ? Element | null
+  : ReturnType<O> | null
   : O extends never
   ? ReturnType<E> | null
   : ReturnType<O> | ReturnType<E> {
@@ -93,7 +92,6 @@ export function getCurrentBranch() {
     }
   }
 
-  raiseError(new Error('cannot get current branch'))
 }
 
 /**
@@ -192,7 +190,6 @@ export function getRepoPageType() {
         return repoPageType
       }
     }
-    raiseError(new Error('cannot get repo page type'))
   })
 }
 
@@ -204,7 +201,7 @@ export function getCodeElement() {
     const codeContentSelector = '.repository-content .data table'
     const codeContentElement = $(codeContentSelector)
     if (!codeContentElement) {
-      raiseError(new Error('cannot find code content element'))
+      // raise error
     }
     return codeContentElement
   }
@@ -221,7 +218,7 @@ export function attachCopyFileBtn() {
     const buttonGroups = document.querySelectorAll(buttonGroupSelector)
 
     if (buttonGroups.length === 0) {
-      raiseError(new Error(`No button groups found`))
+      // raise error
     }
 
     buttonGroups.forEach(async buttonGroup => {
@@ -300,11 +297,7 @@ export function attachCopySnippet() {
       },
       () => {
         const plainReadmeSelector = '.repository-content div#readme .plain'
-        $(plainReadmeSelector, undefined, () =>
-          raiseError(
-            new Error('cannot find mount point for copy snippet button while readme exists'),
-          ),
-        )
+        // raise error
       },
     )
   })

@@ -1,6 +1,5 @@
 import { GetCreatedMethod, MethodCreator } from 'driver/connect'
 import * as ini from 'ini'
-import { Base64 } from 'js-base64'
 import { Config } from 'utils/configHelper'
 import * as DOMHelper from 'utils/DOMHelper'
 import { findNode, searchKeyToRegexps } from 'utils/general'
@@ -103,7 +102,7 @@ type ParsedModule = {
 function resolveGitModules(root: TreeNode, blobData: BlobData) {
   if (blobData) {
     if (blobData.encoding === 'base64' && blobData.content && Array.isArray(root.contents)) {
-      const content = Base64.decode(blobData.content)
+      const content = atob(blobData.content)
       const parsed: Parsed = ini.parse(content)
       handleParsed(root, parsed)
     }

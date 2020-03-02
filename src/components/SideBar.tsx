@@ -1,4 +1,3 @@
-import { raiseError } from 'analytics'
 import { FileExplorer } from 'components/FileExplorer'
 import { MetaBar } from 'components/MetaBar'
 import { Portal } from 'components/Portal'
@@ -204,6 +203,6 @@ async function trySetUpAccessTokenWithCode() {
       return accessToken
     }
   } catch (err) {
-    raiseError(err)
+    // raise error
   }
 }

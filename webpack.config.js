@@ -5,9 +5,10 @@ const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
+const packageJson = require("./package.json")
 const srcPath = path.resolve(__dirname, 'src')
 const packagesPath = path.resolve(__dirname, 'packages')
+const TerserPlugin = require('terser-webpack-plugin');
 
 const plugins = [
   new CopyWebpackPlugin([
@@ -47,7 +48,7 @@ const IN_PRODUCTION_MODE = process.env.NODE_ENV === 'production'
 plugins.push(
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-    'process.env.VERSION': JSON.stringify(process.env.VERSION),
+    'process.env.VERSION': JSON.stringify(packageJson.version),
   }),
 )
 
@@ -64,6 +65,10 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     modules: [srcPath, packagesPath, 'node_modules'],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   module: {
     rules: [
