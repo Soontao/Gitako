@@ -37,12 +37,20 @@ export const isEnterpriseGithub = () => {
   return false // is not github
 }
 
-const getURIBase = () => {
+const getAPIURIBase = () => {
   const { location: { protocol, host } } = window;
   if (isEnterpriseGithub()) {
     return `${protocol}//${host}/api/v3`
   }
   return "https://api.github.com"
+}
+
+const getURIBase = () => {
+  const { location: { protocol, host } } = window;
+  if (isEnterpriseGithub()) {
+    return `${protocol}//${host}`
+  }
+  return "https://github.com"
 }
 
 async function request(url: string, { accessToken }: Options = {}) {
@@ -99,7 +107,7 @@ export async function getRepoMeta({
   repoName,
   accessToken,
 }: MetaData): Promise<RepoMetaData> {
-  const url = `${getURIBase()}/repos/${userName}/${repoName}`
+  const url = `${getAPIURIBase()}/repos/${userName}/${repoName}`
   return await request(url, { accessToken })
 }
 
@@ -125,7 +133,7 @@ export async function getTreeData({
   branchName,
   accessToken,
 }: MetaData): Promise<TreeData> {
-  const url = `${getURIBase()}/repos/${userName}/${repoName}/git/trees/${branchName}?recursive=1`
+  const url = `${getAPIURIBase()}/repos/${userName}/${repoName}/git/trees/${branchName}?recursive=1`
   return await request(url, { accessToken })
 }
 
@@ -145,7 +153,7 @@ export async function getBlobData({
 }: Pick<MetaData, 'userName' | 'repoName' | 'accessToken'> & {
   sha: string
 }): Promise<BlobData> {
-  const url = `${getURIBase()}/repos/${userName}/${repoName}/git/blobs/${sha}`
+  const url = `${getAPIURIBase()}/repos/${userName}/${repoName}/git/blobs/${sha}`
   return await request(url, { accessToken })
 }
 
@@ -154,5 +162,5 @@ export function getUrlForRedirect(
   type = 'blob',
   path?: string,
 ) {
-  return `https://github.com/${userName}/${repoName}/${type}/${branchName}/${path}`
+  return `${getURIBase()}/${userName}/${repoName}/${type}/${branchName}/${path}`
 }
