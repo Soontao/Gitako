@@ -54,6 +54,7 @@ if (analyse) {
 }
 
 const IN_PRODUCTION_MODE = process.env.NODE_ENV === 'production'
+
 plugins.push(
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -65,7 +66,7 @@ module.exports = {
   entry: {
     content: './src/content.tsx',
   },
-  devtool: IN_PRODUCTION_MODE ? 'source-map' : 'eval-source-map',
+  devtool: IN_PRODUCTION_MODE ? false : 'eval-source-map',
   mode: IN_PRODUCTION_MODE ? 'production' : 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
