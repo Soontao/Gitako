@@ -60,7 +60,7 @@ export function AccessTokenSettings(props: React.PropsWithChildren<Props>) {
   return (
     <div className={'gitako-settings-bar-content-section access-token'}>
       <h4>
-        Access Token{' '}
+        Access Token for {window.location.host} {' '}
         <a href={wikiLinks.createAccessToken} target="_blank">
           (?)
         </a>
