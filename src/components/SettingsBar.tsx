@@ -7,6 +7,7 @@ import { AccessTokenSettings } from './settings/AccessTokenSettings'
 // import { FileTreeIconSettings } from './settings/FileTreeIconSettings'
 import { ShortcutSettings } from './settings/ShortcutSettings'
 import { SimpleToggleField } from './SimpleToggleField'
+import * as packageJson from "../../package.json"
 
 const WIKI_HOME_LINK = 'https://github.com/EnixCoda/Gitako/wiki'
 export const wikiLinks = {
@@ -85,7 +86,7 @@ function SettingsBarContent() {
         </div>
         <div className={'gitako-settings-bar-content-section issue'}>
           <h4>Contact</h4>
-          <a href="https://github.com/EnixCoda/Gitako/issues" target="_blank">
+          <a href={`${packageJson.repository}/issues`} target="_blank">
             Report bug / Request feature.
           </a>
         </div>
