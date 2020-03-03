@@ -45,7 +45,7 @@ const getAPIBase = () => {
   return "https://api.github.com"
 }
 
-const getURIBase = () => {
+export const getURIBase = () => {
   const { location: { protocol, host } } = window;
   if (isEnterpriseGithub()) {
     return `${protocol}//${host}`

@@ -16,6 +16,14 @@ const plugins = [
     {
       from: './src/manifest.json',
       to: 'manifest.json',
+      transform: content => {
+        // sync version from package json to manifest
+        const manifest = JSON.parse(content.toString("utf8"))
+        manifest.version = packageJson.version
+        manifest.homepage_url = packageJson.repository
+        manifest.description = packageJson.description
+        return JSON.stringify(manifest, null, 2)
+      }
     },
     {
       from: './src/assets/icons/*',

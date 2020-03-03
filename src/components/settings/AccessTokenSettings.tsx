@@ -3,6 +3,7 @@ import { useConfigs } from 'containers/ConfigsContext'
 import { oauth } from 'env'
 import * as React from 'react'
 import { useStates } from 'utils/hooks'
+import { getURIBase } from "../../utils/GitHubHelper";
 
 const ACCESS_TOKEN_REGEXP = /^[0-9a-f]{40}$/
 
@@ -69,13 +70,12 @@ export function AccessTokenSettings(props: React.PropsWithChildren<Props>) {
           className={'link-button'}
           onClick={() => {
             // use js here to make sure redirect_uri is latest url
-            const url = `https://github.com/login/oauth/authorize?client_id=${
-              oauth.clientId
-            }&scope=repo&redirect_uri=${encodeURIComponent(window.location.href)}`
-            window.location.href = url
+            const url = `${getURIBase()}/settings/tokens/new`
+            const newTab = window.open(url, "_blank")
+            newTab?.focus()
           }}
         >
-          Create with OAuth (recommended)
+          Create with Access Token
         </a>
       )}
       <div className={'access-token-input-control'}>
@@ -92,10 +92,10 @@ export function AccessTokenSettings(props: React.PropsWithChildren<Props>) {
             Clear
           </button>
         ) : (
-          <button className={'btn'} onClick={() => saveToken()} disabled={!accessToken}>
-            Save
+            <button className={'btn'} onClick={() => saveToken()} disabled={!accessToken}>
+              Save
           </button>
-        )}
+          )}
       </div>
       {accessTokenHint && <span className={'hint'}>{accessTokenHint}</span>}
     </div>

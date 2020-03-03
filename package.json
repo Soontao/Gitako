@@ -1,7 +1,7 @@
 {
-  "name": "gitako",
+  "name": "gitako-e",
   "version": "0.9.1",
-  "description": "The missing part of GitHub.",
+  "description": "Yet another Github tree navigator",
   "repository": "https://github.com/Soontao/Gitako",
   "license": "MIT",
   "private": true,
