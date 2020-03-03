@@ -1,6 +1,6 @@
 # Gitako Fork.
 
-[![Node.js CI](https://github.com/Soontao/Gitako/workflows/Node.js%20CI/badge.svg)](https://github.com/Soontao/Gitako/actions/runs/48173272)
+[![Node.js CI](https://github.com/Soontao/Gitako/workflows/Node.js%20CI/badge.svg)](https://github.com/Soontao/Gitako/actions?query=workflow%3A%22Node.js+CI%22)
 
 ## Fork Project
 
@@ -8,7 +8,7 @@ This is a forked project from the main repo, and I've adjust many build scripts 
 
 ## Install
 
-* Go to build page & download snapshot build
+* Go to the [build page](https://github.com/Soontao/Gitako/actions?query=workflow%3A%22Node.js+CI%22) & download the latest snapshot build
 * Open the `Chrome Extension Page`
 * Enable `Developer Mode`
 * Drag & drop the `Gitako-Ext.zip` file into the page
